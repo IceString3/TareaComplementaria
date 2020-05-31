@@ -27,7 +27,7 @@ public class Main {
          * por cada ejecución del programa */
         menu();
         do {
-            logger.log (Level.INFO, "Selecciona una opción: ");
+            logger.config ("Selecciona una opción: ");
             opcion = scanner.nextInt ();
             scanner.nextLine ();
             switch (opcion) {
