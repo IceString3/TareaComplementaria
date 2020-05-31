@@ -49,13 +49,4 @@ public class Articulo {
     public int getCantidad() {
         return cantidad;
     }
-
-    @Override
-    public String toString() {
-        return "Articulo{" +
-                "nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                ", cantidad=" + cantidad +
-                '}';
-    }
 }

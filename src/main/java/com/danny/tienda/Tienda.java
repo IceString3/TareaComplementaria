@@ -120,11 +120,4 @@ public class Tienda {
     public ArrayList<Articulo> getArticulos() {
         return articulos;
     }
-
-    @Override
-    public String toString() {
-        return "Tienda{" +
-                "articulos=" + articulos +
-                '}';
-    }
 }
