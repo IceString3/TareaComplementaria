@@ -85,7 +85,7 @@ public class Main {
         logger.log(Level.INFO, "Introduce el nombre del artículo que se desea eliminar: ");
         String nombre = scanner.nextLine ();
         if (t.removeArticle (nombre)) {
-            logger.log(Level.INFO, "Se ha eliminado el artículo " + nombre);
+            logger.log(Level.INFO, "Se ha eliminado el artículo {0}", nombre);
         } else {
             logger.log(Level.INFO, "No se ha encontrado el artículo");
         }
