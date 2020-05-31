@@ -22,8 +22,10 @@ public class Main {
     public static void main(String[] args) {
 
         int opcion;
+        boolean x = false;
+        /* Variable para controlar que llenarAlmacen sólo se llame una vez
+         * por cada ejecución del programa */
         menu();
-        // Creamos tienda, llenamos el almacen y mostramos el inventario:
         do {
             logger.log (Level.INFO, "Selecciona una opción: ");
             opcion = scanner.nextInt ();
@@ -33,7 +35,12 @@ public class Main {
                     menu();
                     break;
                 case 1:
-                    t.llenarAlmacen ();
+                    if (!x) {
+                        t.llenarAlmacen ();
+                        x = true;
+                    } else {
+                        logger.log(Level.INFO, "Ya se habían cargado previamente los artículos");
+                    }
                     break;
                 case 2:
                     t.mostrarInventario ();
