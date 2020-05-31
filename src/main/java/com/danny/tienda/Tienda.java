@@ -1,14 +1,18 @@
 package com.danny.tienda;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * En esta clase se incluyen los métodos para manejar artículos en la tienda.
  */
 public class Tienda {
 
+    private Logger logger = Logger.getLogger(Tienda.class.getName());
+
     private ArrayList<Articulo> articulos;
-    private int numArticulos;
 
     /**
      * Genera un ArrayList donde se almacenarán los artículos de la tienda.
@@ -24,9 +28,8 @@ public class Tienda {
     public int mostrarInventario() {
         int count = 0;
         for (Articulo articulo : articulos) {
-            System.out.println ("Nombre: " + articulo.getNombre () + ", " +
-                                "Precio: " + articulo.getPrecio () + ", " +
-                                "Cantidad: " + articulo.getCantidad ());
+            logger.log(Level.INFO, "Nombre: {0} \nPrecio: {1} \nCantidad: {2}",
+                    new Object []{articulo.getNombre (), articulo.getPrecio (), articulo.getCantidad ()});
             count++;
         }
         return count;
@@ -43,8 +46,8 @@ public class Tienda {
         addArticle ("Tres", 10.0, 12);
         addArticle ("Cuatro", 105.0, 4);
         addArticle ("Cinco", 99.0, 1);
-        numArticulos = articulos.size ();
-        System.out.println ("Artículos añadidos");
+        int numArticulos = articulos.size ();
+        logger.log(Level.INFO, "Artículos añadidos");
         return numArticulos;
     }
 
@@ -117,7 +120,7 @@ public class Tienda {
      * Permite, al devolver un ArrayList de Articulo, escoger un elemento de dicho ArrayList.
      * @return Devuelve un ArrayList de objetos de tipo Articulo.
      */
-    public ArrayList<Articulo> getArticulos() {
+    public List<Articulo> getArticulos() {
         return articulos;
     }
 }
