@@ -61,12 +61,13 @@ Supongamos que tenemos cargada la lista de elementos predeterminados vía "Llena
 
 Para comprobarlo, mostraremos la lista con la opción 2 y miramos si sigue existiendo el artículo cuyo nombre es "Dos":
 
-> Articulo{nombre='Cero', precio=10.0, cantidad=12}  
-> Articulo{nombre='Uno', precio=20.0, cantidad=9}  
-> Articulo{nombre='Tres', precio=10.0, cantidad=12}  
-> Articulo{nombre='Cuatro', precio=105.0, cantidad=4}  
-> Articulo{nombre='Cinco', precio=99.0, cantidad=1}  
-> Articulo{nombre='Mascarilla quirúrgica', precio=0.96, cantidad=50}  
+> Nombre: Cero, Precio: 10.0, Cantidad: 12  
+> Nombre: Uno, Precio: 20.0, Cantidad: 9  
+> Nombre: Dos, Precio: 10.0, Cantidad: 12  
+> Nombre: Tres, Precio: 10.0, Cantidad: 12  
+> Nombre: Cuatro, Precio: 105.0, Cantidad: 4  
+> Nombre: Cinco, Precio: 99.0, Cantidad: 1  
+ 
 
 ## 5. Buscar artículo
 Sirve para buscar un artículo en la tienda. Para ello introduzca el nombre del artículo que se desea buscar. Partiendo de la lista predeterminada:
