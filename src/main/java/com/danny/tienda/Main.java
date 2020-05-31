@@ -1,6 +1,8 @@
 package com.danny.tienda;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Este programa implementa una aplicación para añadir artículos predeterminados
@@ -15,6 +17,7 @@ public class Main {
 
     private static Scanner scanner = new Scanner (System.in);
     private static Tienda t = new Tienda();
+    private static Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
 
@@ -22,7 +25,7 @@ public class Main {
         menu();
         // Creamos tienda, llenamos el almacen y mostramos el inventario:
         do {
-            System.out.println ("Selecciona una opción.");
+            logger.log (Level.INFO, "Selecciona una opción: ");
             opcion = scanner.nextInt ();
             scanner.nextLine ();
             switch (opcion) {
@@ -45,58 +48,59 @@ public class Main {
                     search ();
                     break;
                 case 6:
-                    System.out.println ("Saliendo...");
+                    logger.log(Level.INFO, "Saliendo...");
                     break;
                 default:
-                    System.out.println ("Opción desconocida");
+                    logger.log(Level.INFO, "Opción desconocida");
             }
         } while (opcion != 6);
     }
 
     private static void menu() {
-        System.out.println ("1. Llenar almacén");
-        System.out.println ("2. Mostrar inventario");
-        System.out.println ("3. Añadir artículo");
-        System.out.println ("4. Eliminar artículo");
-        System.out.println ("5. Buscar artículo");
-        System.out.println ("6. Salir");
+        logger.log(Level.INFO, "1. Llenar almacén");
+        logger.log(Level.INFO, "2. Mostrar inventario");
+        logger.log(Level.INFO, "3. Añadir artículo");
+        logger.log(Level.INFO, "4. Eliminar artículo");
+        logger.log(Level.INFO, "5. Buscar artículo");
+        logger.log(Level.INFO, "6. Salir");
     }
 
     private static void addArticle() {
-        System.out.println ("Introduzca el nombre del artículo: ");
+        logger.log(Level.INFO, "Introduzca el nombre del artículo: ");
         String name = scanner.nextLine ();
-        System.out.println ("Introduzca el precio del artículo: ");
+        logger.log(Level.INFO, "Introduzca el precio del artículo: ");
         double cost = scanner.nextDouble ();
         scanner.nextLine ();
-        System.out.println ("Introduzca las unidades del artículo: ");
+        logger.log(Level.INFO, "Introduzca las unidades del artículo: ");
         int cantidad = scanner.nextInt ();
         scanner.nextLine ();
         if (t.addArticle (name, cost, cantidad)) {
-            System.out.println ("Artículo añadido.");
+            logger.log(Level.INFO, "Artículo añadido.");
         } else {
-            System.out.println ("No se ha podido añadir el artículo.");
+            logger.log(Level.INFO, "No se ha podido añadir el artículo.");
         }
     }
 
     private static void remove() {
-        System.out.println ("Introduce el nombre del artículo que se desea eliminar: ");
+        logger.log(Level.INFO, "Introduce el nombre del artículo que se desea eliminar: ");
         String nombre = scanner.nextLine ();
         if (t.removeArticle (nombre)) {
-            System.out.println ("Se ha eliminado el artículo " + nombre);
+            logger.log(Level.INFO, "Se ha eliminado el artículo " + nombre);
         } else {
-            System.out.println ("No se ha encontrado el artículo");
+            logger.log(Level.INFO, "No se ha encontrado el artículo");
         }
     }
 
     private static void search() {
-        System.out.println ("Introduce el nombre del artículo que se desea buscar: ");
+        logger.log(Level.INFO, "Introduce el nombre del artículo que se desea buscar: ");
         String nombre = scanner.nextLine ();
         Articulo art = t.buscar (nombre);
         if (art != null) {
-            System.out.println ("Nombre: " + art.getNombre () + "\nPrecio: " +
-                    art.getPrecio () + "\nCantidad: " + art.getCantidad ());
+            logger.log(Level.INFO, "Nombre: {0} \nPrecio: {1} \nCantidad: {2}",
+                        new Object []{art.getNombre (), art.getPrecio (), art.getCantidad ()});
         } else {
-            System.out.println ("No se pudo encontrar el artículo con nombre \"" + nombre + "\"");
+            logger.log(Level.INFO, "No se pudo encontrar el artículo con nombre {0}",
+                        new Object[]{nombre});
         }
     }
 }
