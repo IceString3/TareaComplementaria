@@ -1,0 +1,9 @@
+
+U	java:S106#"9Replace this use of System.out or System.err by a logger.(™£°ù8Å¹ßí¥.
+G
+java:S1068"+Remove this unused "scanner" private field.(·¸ã8¥Àç¤.
+}
+java:S1450"[Remove the "numArticulos" field and declare it as a local variable in the relevant methods.(””å“ÿÿÿÿÿ8¥Àç¤.
+U	java:S1066"9Replace this use of System.out or System.err by a logger.(ØÅšÍ8êñÇì¥.
+
+java:S1319~"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(’¾ÚÈ8—´ê¥.
